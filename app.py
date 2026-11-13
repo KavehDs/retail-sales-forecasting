@@ -29,6 +29,14 @@ from forecast import (  # noqa: E402
 
 st.set_page_config(page_title="Retail Sales Forecast", layout="wide")
 st.title("Retail Sales Forecast — Sample Superstore")
+# Sliders must stay left-to-right even in RTL browsers (e.g. Persian):
+# without this fix, dragging the thumb right decreases the value.
+st.markdown(
+    """<style>
+    [data-testid="stSlider"] { direction: ltr !important; }
+    </style>""",
+    unsafe_allow_html=True,
+)
 st.write(
     "Weekly sales per product category, forecast with LightGBM "
     "(lag + rolling + calendar features). Test-set results: "
