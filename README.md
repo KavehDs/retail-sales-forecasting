@@ -1,5 +1,7 @@
 # Retail Sales Forecasting
 
+🚀 **Live demo:** [Try the app](https://afsrgo7adfcexiaoutsbty.streamlit.app/)
+
 Forecast next weeks' sales for a retail store, by product category —
 so stock and staffing can be planned before the week happens, not after.
 
