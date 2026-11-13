@@ -1,0 +1,86 @@
+{
+  "dataset": {
+    "name": "Sample Superstore (Tableau sample, GitHub mirror)",
+    "file": "data/superstore.csv",
+    "source_url": "https://raw.githubusercontent.com/WuCandice/Superstore-Sales-Analysis/main/dataset/Superstore%20Dataset.csv",
+    "raw_orders": 9994,
+    "columns": 20,
+    "date_min": "2019-01-06",
+    "date_max": "2023-01-01",
+    "n_weeks": 209,
+    "categories": [
+      "Furniture",
+      "Office Supplies",
+      "Technology"
+    ],
+    "weekly_rows": 627,
+    "total_sales": 2297200.8603
+  },
+  "split": {
+    "type": "time-based, no random split",
+    "test_weeks": 12,
+    "test_start": "2022-10-16",
+    "test_end": "2023-01-01",
+    "train_rows": 435,
+    "test_rows": 36
+  },
+  "results": {
+    "Seasonal naive (lag 52)": {
+      "rmse": 5528.8574099638645,
+      "mape_pct": 49.97729840856524,
+      "wmape_pct": 54.111117240788154
+    },
+    "LightGBM": {
+      "rmse": 4100.838781819536,
+      "mape_pct": 79.57744481543179,
+      "wmape_pct": 43.913257020080096
+    }
+  },
+  "per_category": {
+    "Furniture": {
+      "n_test_weeks": 12,
+      "baseline_rmse": 4051.8075953550965,
+      "baseline_mape_pct": 46.82905520710113,
+      "baseline_wmape_pct": 46.334036651232516,
+      "lgbm_rmse": 3808.8509450072706,
+      "lgbm_mape_pct": 44.60911365033724,
+      "lgbm_wmape_pct": 43.313709086689194
+    },
+    "Office Supplies": {
+      "n_test_weeks": 12,
+      "baseline_rmse": 4796.8611341544665,
+      "baseline_mape_pct": 53.67208183850766,
+      "baseline_wmape_pct": 53.73284194700386,
+      "lgbm_rmse": 2262.396400773841,
+      "lgbm_mape_pct": 34.932687368726384,
+      "lgbm_wmape_pct": 30.737423452119767
+    },
+    "Technology": {
+      "n_test_weeks": 12,
+      "baseline_rmse": 7230.3368696761345,
+      "baseline_mape_pct": 49.430758180086954,
+      "baseline_wmape_pct": 61.338605354436694,
+      "lgbm_rmse": 5552.013431891913,
+      "lgbm_mape_pct": 159.1905334272317,
+      "lgbm_wmape_pct": 55.34121889068574
+    }
+  },
+  "feature_importance_lightgbm": {
+    "roll_std_4": 652,
+    "lag_4": 581,
+    "lag_2": 527,
+    "roll_mean_8": 516,
+    "roll_mean_4": 475,
+    "lag_52": 439,
+    "lag_1": 432,
+    "trend": 393,
+    "weekofyear": 233,
+    "month_cos": 121,
+    "month": 103,
+    "month_sin": 100,
+    "is_Technology": 91,
+    "is_Furniture": 58,
+    "is_Office_Supplies": 36,
+    "quarter": 0
+  }
+}
